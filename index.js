@@ -33,8 +33,8 @@ client.on('ready', () =>{
                 name: content,
                 type:0
             }
-        })
+        });
     });
 });
 
-client.login(config.TOKEN);
+client.login(process.env.TOKEN);
