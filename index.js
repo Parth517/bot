@@ -7,7 +7,7 @@ const firstMessage = require('./first-message');
 
 client.on('ready', () =>{
     console.log('The client is ready!');
-    firstMessage(client,'822458933246820405','Hello world!!!',['🔥','🌶️'])
+    firstMessage(client,'822458933246820405','Hello world!!!',['🔥','🌶️']);
 
     command(client,['ping','test'],message =>{
         message.channel.send('Pong!')
