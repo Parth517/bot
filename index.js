@@ -6,6 +6,7 @@ const firstMessage = require('./first-message');
 const roleClaim = require('./role-claim');
 const poll= require('./poll')
 const welcome = require('./welcome')
+const memberCount=require('./member-count')
 client.on('ready', () =>{
         console.log("Client is running")
         //firstMessage(client, '822458933246820405', 'hello world!!!', ['🔥', '🍉']);
@@ -13,6 +14,7 @@ client.on('ready', () =>{
         //help
         welcome(client);
         poll(client);
+        memberCount(client)
        
         command(client,'help', message => {
             message.channel.send(`
