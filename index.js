@@ -7,11 +7,16 @@ const roleClaim = require('./role-claim');
 const poll= require('./poll')
 const welcome = require('./welcome')
 const memberCount=require('./member-count')
+const sendMessage = require('./send-message')
 client.on('ready', () =>{
         console.log("Client is running")
         //firstMessage(client, '822458933246820405', 'hello world!!!', ['🔥', '🍉']);
         
         //help
+        const guild= client.guilds.cache.get('822458933246820402')
+        const channel= guild.channels.cache.get('822458933246820405')
+
+        sendMessage(channel, 'hello World',3);
         welcome(client);
         poll(client);
         memberCount(client)
@@ -91,16 +96,7 @@ client.on('ready', () =>{
             });
         }
     });
-    command(client,'status',message => {
-        const content = message.content.replace('!status','');
-
-        client.user.setPresence({
-            activity:{
-                name: content,
-                type:0
-            }
-        });
-    });
+     
 });
 
-client.login(process.env.DJS_TOKEN);
+client.login(process.env.TOKEN);
