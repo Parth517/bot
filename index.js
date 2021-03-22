@@ -4,12 +4,13 @@ const config = require('./config.json');
 const command = require('./command');
 const firstMessage = require('./first-message');
 const roleClaim = require('./role-claim');
-
+const poll= require('./poll')
 client.on('ready', () =>{
         console.log("Client is running")
         //firstMessage(client, '822458933246820405', 'hello world!!!', ['🔥', '🍉']);
         
         //help
+        poll(client);
         command(client,'help', message => {
             message.channel.send(`
             these are the supported commands
