@@ -5,8 +5,26 @@ const command = require('./command');
 const firstMessage = require('./first-message');
 
 client.on('ready', () =>{
-        console.log("Client")
-        firstMessage(client, '822458933246820405', 'hello world!!!', ['🔥', '🍉'])
+        console.log("Client is running")
+        //firstMessage(client, '822458933246820405', 'hello world!!!', ['🔥', '🍉']);
+        
+        
+        command(client,'help', message => {
+            message.channel.send(`
+            these are the supported commands
+            **!help** - displays the help menu
+            **!add<num1> <num2>** -adds two numbers 
+            **!sub<num1> <num2>** -adds two numbers 
+            `);
+        });
+        const { prefix } = config
+        
+        client.user.setPresence({
+            activity:{
+                name: `"${prefix}help"for help`
+            },
+        });
+
     
     command(client,['ping','test'],message =>{
         message.channel.send('Pong!')
