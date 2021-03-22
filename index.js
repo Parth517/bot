@@ -3,12 +3,14 @@ const client = new Discord.Client();
 const config = require('./config.json');
 const command = require('./command');
 const firstMessage = require('./first-message');
+const roleClaims = require('./role-claim');
+const roleClaim = require('./role-claim');
 
 client.on('ready', () =>{
         console.log("Client is running")
         //firstMessage(client, '822458933246820405', 'hello world!!!', ['🔥', '🍉']);
         
-        
+        //help
         command(client,'help', message => {
             message.channel.send(`
             these are the supported commands
@@ -24,7 +26,7 @@ client.on('ready', () =>{
                 name: `"${prefix}help"for help`
             },
         });
-
+        roleClaim(client);
     
     command(client,['ping','test'],message =>{
         message.channel.send('Pong!')
