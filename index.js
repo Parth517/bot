@@ -8,11 +8,21 @@ const poll= require('./poll')
 const welcome = require('./welcome')
 const memberCount=require('./member-count')
 const sendMessage = require('./send-message')
-client.on('ready', () =>{
+
+const mongo = require('./mongo')
+client.on('ready', async() =>{
         console.log("Client is running")
         //firstMessage(client, '822458933246820405', 'hello world!!!', ['🔥', '🍉']);
         
-        //help
+       
+        await mongo().then(mongoose => {
+            try{
+                console.log('connected to mongo')
+            }finally{
+                mongoose.connection.close();
+            }
+        })
+        
         const guild= client.guilds.cache.get('822458933246820402')
         const channel= guild.channels.cache.get('822458933246820405')
 
