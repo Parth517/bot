@@ -8,12 +8,13 @@ const poll= require('./poll')
 const welcome = require('./welcome')
 const memberCount=require('./member-count')
 const sendMessage = require('./send-message')
+const messageCount = require('./message-counter')
 
 const mongo = require('./mongo')
 client.on('ready', async() =>{
         console.log("Client is running")
         //firstMessage(client, '822458933246820405', 'hello world!!!', ['🔥', '🍉']);
-        
+        messageCount(client)
        
         await mongo().then(mongoose => {
             try{
